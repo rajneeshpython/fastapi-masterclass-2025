@@ -1,0 +1,53 @@
+# Byte-compiled / Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Editor / IDE configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+*.out
+
+# Database files (if local sqlite)
+*.sqlite3
+*.db
+
+# Migrations (optional: you may include in repo if versioned)
+migrations/
+*.pyc
+
+# Coverage reports
+.coverage
+htmlcov/
+.coverage.*
+
+# Pytest / testing
+.pytest_cache/
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# Secrets / config files
+.env
+config/*.secret
+
+# Misc
+*.zip
+*.tar.gz
