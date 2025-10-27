@@ -5,7 +5,7 @@ app = FastAPI()
 
 # In-memory list of books (acting as a mock database)
 BOOKS = [
-    {"title": "FastAPI", "author": "Sebastian Ramirez", "category": "technology"},
+    {"title": "FastAPI", "author": "Luciano Ramalho", "category": "technology"},
     {"title": "Django", "author": "William Vincent", "category": "technology"},
     {"title": "Python", "author": "Luciano Ramalho", "category": "technology"},
     {"title": "Sapiens", "author": "Yuval Noah Harari", "category": "history"},
@@ -77,3 +77,16 @@ async def delete_book(book_title: str):
             BOOKS.remove(book)
             return {"message": f"Book '{book_title}' deleted successfully"}
     return {"message": "Book not found"}
+
+
+# Assignment
+# Creates a new API Endpoint that can fetch all books from a specific author using either Path Parameters or Query Parameters.
+
+@app.get("/books/bookbyauthor/{book_author}")
+async def read_book_by_author_path(book_author: str):
+    books_to_return = []
+    for book in BOOKS:
+        if book.get("author").casefold() == book_author.casefold():
+            books_to_return.append(book)
+    return books_to_return
+
