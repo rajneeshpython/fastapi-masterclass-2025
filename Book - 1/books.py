@@ -3,7 +3,7 @@ from fastapi import Body, FastAPI
 # Initialize the FastAPI app
 app = FastAPI()
 
-# In-memory list of books (acting as a mock database)
+# In-memory list of Book - 1 (acting as a mock database)
 BOOKS = [
     {"title": "FastAPI", "author": "Luciano Ramalho", "category": "technology"},
     {"title": "Django", "author": "William Vincent", "category": "technology"},
@@ -16,13 +16,13 @@ BOOKS = [
 
 @app.get("/books")
 async def get_all_books():
-    # Return the complete list of books
+    # Return the complete list of Book - 1
     return BOOKS
 
 
 @app.get("/books/by_category")
 async def read_category_by_query(category: str):
-    # Filter books by category (case-insensitive)
+    # Filter Book - 1 by category (case-insensitive)
     books_to_return = [
         book for book in BOOKS
         if book.get("category").casefold() == category.casefold()
@@ -41,7 +41,7 @@ async def read_book(book_title: str):
 
 @app.get("/books/author/{book_author}")
 async def read_author_category_by_query(book_author: str, category: str):
-    # Filter books by both author and category (case-insensitive)
+    # Filter Book - 1 by both author and category (case-insensitive)
     books_to_return = [
         book for book in BOOKS
         if (
@@ -80,7 +80,7 @@ async def delete_book(book_title: str):
 
 
 # Assignment
-# Creates a new API Endpoint that can fetch all books from a specific author using either Path Parameters or Query Parameters.
+# Creates a new API Endpoint that can fetch all Book - 1 from a specific author using either Path Parameters or Query Parameters.
 
 @app.get("/books/bookbyauthor/{book_author}")
 async def read_book_by_author_path(book_author: str):
