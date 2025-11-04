@@ -27,7 +27,7 @@ class TodoRequest(BaseModel):
     title: str = Field(min_length=3)
     description: str = Field(min_length=3, max_length=100)
     priority: int = Field(gt=0, lt=6)
-    completed: bool
+    complete: bool
 
     model_config = {
         "json_schema_extra": {
@@ -35,7 +35,7 @@ class TodoRequest(BaseModel):
                 "title": "Learn FastAPI",
                 "description": "Learn FastAPI from basics to advanced concepts",
                 "priority": 5,
-                "completed": False
+                "complete": False
             }
         }
     }
@@ -83,7 +83,7 @@ async def update_todo(user : user_dependency, db: db_dependency,
     todo_model.title = todo_request.title
     todo_model.description = todo_request.description
     todo_model.priority = todo_request.priority
-    todo_model.completed = todo_request.completed
+    todo_model.complete = todo_request.complete
     db.add(todo_model)
     db.commit()
 
